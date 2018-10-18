@@ -37,5 +37,3 @@ Help for {hi:dta2kml}
 
 Benjamin Daniels
 bbdaniels@gmail.com
-
-{p_end}

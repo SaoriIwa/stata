@@ -43,5 +43,3 @@ In Aid We Trust: Hearts and Minds and the Pakistan Earthquake of 2005
 Tahir Andrabi and Jishnu Das
 The Review of Economics and Statistics 2017 99:3, 371-386 
 http://www.mitpressjournals.org/doi/abs/10.1162/REST_a_00638
-
-{p_end}

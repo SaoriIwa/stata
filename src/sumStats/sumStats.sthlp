@@ -20,5 +20,3 @@ Help for {hi:sumStats}
 
 Benjamin Daniels
 bbdaniels@gmail.com
-
-{p_end}

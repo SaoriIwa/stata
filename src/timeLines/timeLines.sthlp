@@ -28,9 +28,30 @@ Help for {hi:timeLines}
 {synoptline}
 {p 4 6 2}{it:(A * indicates required options.)}{p_end}
 
+
+{title:Demo}
+
+webuse census , clear
+keep in 40/50
+replace pop18p = pop18p / 1000
+replace pop = pop / 1000
+format pop18p %tdMon_CCYY
+drop if state == "Virginia"
+
+xtile category = popurban , n(2)
+	label def category 1 "Early Adopters" 2 "Late Adopters"
+	label val category category
+
+timeLines , ///
+  id(region) start(pop18p) end(pop) ///
+  labels(state) labopts(mlabangle(30)) ///
+  xsize(7) class(category) classcolors(maroon navy)
+  
+  graph export "${directory}/timeLines.png" , replace
+
+
+
 {title:Author}
 
 Benjamin Daniels
 bdaniels@worldbank.org
-
-{p_end}

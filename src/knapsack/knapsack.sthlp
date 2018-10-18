@@ -14,6 +14,17 @@ Help for {hi:knapsack}
 
 {p}{cmd:knapsack} {it:budget} , {opt p:rice(varname)} {opt v:alue(varname)} {opt gen:erate(newvarname)}
 
+{title:Demo}
+	sysuse auto, clear
+	keep mpg price
+	rename (mpg price)(cost value)
+
+	knapsack 500, p(cost) v(value) gen(chosen)
+
+	di "`r(max)'"
+	table chosen , c(sum cost sum value)
+
+
 {title:Author}
 
 Benjamin Daniels

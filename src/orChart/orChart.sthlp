@@ -29,5 +29,3 @@ Help for {hi:orChart}
 
 Benjamin Daniels
 bdaniels@worldbank.org
-
-{p_end}

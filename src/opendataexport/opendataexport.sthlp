@@ -18,17 +18,12 @@ Help for {hi:opendataexport}
 
 {title:Demo}
 
-	cd /Users/bbdaniels/GitHub/stata/dev/openstatakit/
-
+	global folder "{directory}"
 	sysuse auto , clear
 	
-	isid make , sort
-	
-	reg rep78 headroom
+	opendataexport "$folder/opendataexport_codebook" using `" "demo1.do"  "demo2.do" "'
+	opendataexport "$folder/opendataexport_compact" 	, compact
 
-	saveopendata "opendataexport" 	using "opendataexport.ado"
-	saveopendata "opendataexport_twofiles" 	using `" "opendataexport.ado" "opendataexport.ado" "'
-	saveopendata "opendataexport_compact" 	, compact
 
 {title:Author}
 
@@ -37,5 +32,3 @@ DIME Analytics
 World Bank Group
 
 bdaniels@worldbank.org
-
-{p_end}

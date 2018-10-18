@@ -60,5 +60,3 @@ Help for {hi:betterbar}
 
 Benjamin Daniels
 bbdaniels@gmail.com
-
-{p_end}

@@ -32,15 +32,16 @@ Help for {hi:randReg}
 
 {title:Example}
 
-clear
-set obs 1000
-gen treat_rand = runiform()
-gen treatment = treat_rand > 0.5
-gen error = rnormal()
-gen outcome = .3*treatment + 3*error
-randReg reg outcome treatment , seed(4747) t(treatment) graph reps(100)
-	graph export "test.png" , replace
-	return list
+	clear
+	set obs 1000
+	gen treat_rand = runiform()
+	gen treatment = treat_rand > 0.5
+	gen error = rnormal()
+	gen outcome = .3*treatment + 3*error
+	randReg reg outcome treatment , seed(4747) t(treatment) graph reps(100)
+		graph export "test.png" , replace
+		return list
+
 
 {title:Author}
 
@@ -51,4 +52,3 @@ bdaniels@worldbank.org
 
 {p}Kerwin, Jason. "Randomization inference vs. bootstrapping for p-values." https://jasonkerwin.com/nonparibus/2017/09/25/randomization-inference-vs-bootstrapping-p-values/{p_end}
 
-{p_end}

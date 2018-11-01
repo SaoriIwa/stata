@@ -10,8 +10,9 @@ Help for {hi:orChart}
 
 {title:Syntax}
 
-{p 2 4}{cmd: orChart} {it:depvars} [{help if}] [{help in}], {opt c:ommand(estimation_command)} {opt rhs(indepvar [controlvars])}
-{break} [{opt globalif}] [{opt regopts(regression_options)}] [{it:tw_options}]
+{p 2 4}{cmd: orChart} {it:depvars} [{help if}] [{help in}] [{help using}] [{help pweight}], 
+{break} {opt c:ommand(estimation_command)} {opt rhs(indepvar [controlvars])} {opt case0()} {opt case1()}
+{break} [{opt globalif}] [{opt regopts(regression_options)}] [{it:tw_options}] [{it:globalif}]
 
 {synoptset 16 tabbed}{...}
 {marker Options}{...}

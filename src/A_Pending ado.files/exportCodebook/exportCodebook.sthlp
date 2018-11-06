@@ -4,29 +4,34 @@
 Help for {hi:exportCodebook}
 {hline}
 
-{title:Description}
+{title:Title}
 
-{p 2 4 4}{cmd:exportCodebook} reads the currently open dataset and either (A) creates a codebook for it in the specified location; or (B) reads a series of .dofiles that reference the data and keeps only the variables that those dofiles reference.
+{phang2}{cmdab:exportCodebook} {hline 2} reads the currently open dataset and either (A) creates a codebook for it in the specified location; or (B) by specifying the .dofiles with {it:using}, reads a series of .dofiles that reference the data and keeps only the variables that those dofiles reference.
 
 {title:Syntax}
 
-{p 2 4 4}{cmd:exportCodebook} {it:saving_location} {help using} {it:dofile_list} 
+{phang2}{cmdab:exportCodebook} {it:file_name} [{help using}] [{it:dofile_list}], [compact] {break}
+where {it:file_name} is a name for the file to be saved in .txt format. {p_end}
 
-{title:Things to Remember}
+{title:Options}
 
-{p 2 4 4}{cmd:exportCodebook} can only use dofiles that reference the FULL NAME of each variable. Using shortcuts and abbreviations will cause the dataset to be incorrect. It will also keep variables whose names contain other variables that are referenced.
+{phang2}{cmdab:compact} creates a compact codebook which contains variable name, obs, number of unique value, label used, and basic statistics(mean, min, max). {p_end}
 
-{title:Demo}
 
-	sysuse auto , clear
-	
-	isid make , sort
-	
-	reg rep78 headroom
+{title:Notes}
 
-	saveopendata "exportCodebook" 	using "exportCodebook"
-	saveopendata "exportCodebook_twofiles" 	using `" "exportCodebook.ado" "exportCodebook.ado" "'
-	saveopendata "exportCodebook_compact" 	, compact
+{phang2}{cmdab:exportCodebook} can only use dofiles that reference the FULL NAME of each variable. Using shortcuts and abbreviations will cause the dataset to be incorrect. It will also keep variables whose names contain other variables that are referenced.{p_end}
+
+
+{title:Examples}
+
+{pmore}{inp:exportCodebook {it:"${directory}{it:/my_codebook"}}}
+
+{pmore}{inp:exportCodebook {it:"${directory}{it:/my_codebook"}} using {it:"exportCodebook.ado"}}
+
+{pmore}{inp:exportCodebook {it:"${directory}{it:/my_codebook"}} using {it:`" "exportCodebook.ado" "exportCodebook2.ado" "'}}
+
+{pmore}{inp:exportCodebook {it:"${directory}{it:/my_codebook"}} 	, compact}
 
 {title:Author}
 
@@ -35,5 +40,3 @@ DIME Analytics
 World Bank Group
 
 bdaniels@worldbank.org
-
-{p_end}

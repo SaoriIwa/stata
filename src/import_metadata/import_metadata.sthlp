@@ -6,7 +6,7 @@ Help for {hi:import_metadata}
 
 {title:Title} 
 
-{phang2}{cmd:import_metadata} {hline 2} imports data from one or more spreadsheets(.xlsx files) and/or datasets(.dta files), and appends them, using a metadata spreadsheet containing information about the variables. {cmd:import_metadata} does this by creating a metadata spreadsheet from dataset(s) specified, containing information about variable names. {cmp:import_metadata} recodes and labels variables in the dataset, and appends multiple datasets according to the metadata spreadsheet. More description at {help import_metadata##description:Description}.
+{phang2}{cmd:import_metadata} {hline 2} imports data from one or more spreadsheets(.xlsx files) and/or datasets(.dta files), and appends them, using a metadata spreadsheet containing information about the variables. {cmd:import_metadata} does this by creating a metadata spreadsheet from dataset(s) specified, containing information about variable names. {cmdab:import_metadata} recodes and labels variables in the dataset, and appends multiple datasets according to the metadata spreadsheet. More description at {help import_metadata##description:Description}.
 
 
 {title:Syntax}
@@ -76,7 +76,7 @@ There should be no other rows with entries once the data has begun (except those
 
 {p 7 7 2} To extract variable names: {cmd:prep} option will create a spreadsheet with all variable names from the file used. These names can vary across files. These different names under oldname_1, oldname_2, etc. can be converted and consolidated to "Variable Name" when specified. {bf:oldname()} must be specified for each file to be imported, in the order of listing in the command line. Column names may be reused for multiple files.{p_end}
 
-{p 4 7 2} 2) The final name for the variable lited under the column "Variable Name".{p_end}
+{p 4 7 2} 2) The final name for the variable listed under the column "Variable Name".{p_end}
 {p 4 7 2} 3) Any necessary variable labels for the variable in Variable Label".{p_end}
 {p 4 7 2} 4) A {bf:recode()} for the variable will be applied {bf:before} value labels. As in the original names, there must be one such entry for each file, even if no recodes are to occur for that file. Names can be repeated.{p_end}
 {p 4 7 2} 5) Any necessary value label for the variable in {it:Value Label} (see {help import_metadata##label:Labels}).{p_end}

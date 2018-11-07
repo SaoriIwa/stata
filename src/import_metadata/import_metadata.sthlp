@@ -103,6 +103,8 @@ There should be no other rows with entries once the data has begun (except those
 
 {pstd} 1: Creating the metadata spreadsheet called "prep_demo" using auto.xlsx.{p_end}
 
+	qui do "${directory}/import_metadata.ado"
+
 	import_metadata ///
 		"$directory/auto.xlsx" ///
 	using "$directory/prep_demo.xlsx" ///

@@ -101,22 +101,19 @@ There should be no other rows with entries once the data has begun (except those
 
 {title:Examples}
 
-{pstd} 1: Creating the metadata spreadsheet called "my_metadata" using auto.xlsx and data.dta.{p_end}
+{pstd} 1: Creating the metadata spreadsheet called "prep_demo" using auto.xlsx.{p_end}
 
 	import_metadata ///
 		"$directory/auto.xlsx" ///
-		"$directory/data.dta" ///
-	using "$directory/my_metadata.xlsx" ///
-		, prep replace namerow(1) headrow(2) sheet(data)
+	using "$directory/prep_demo.xlsx" ///
+		, prep replace namerow(1) headrow(2)
 
-
-{pstd} 2: Importing the files into one dataset{p_end}
+{pstd} 2: Importing the file into a dataset according to "auto_metadata" metadata spreadsheet.{p_end}
 
 	import_metadata ///
-		"$directory/data.dta" ///
 		"$directory/auto.xlsx" ///
-	using "$directory/my_metadata.xlsx" ///
-		,oldname(oldname_1 oldname_2) head(2) name(1)
+	using "$directory/auto_metadata.xlsx" ///
+		, namerow(1) headrow(2) oldname(oldname_1)
 
 
 

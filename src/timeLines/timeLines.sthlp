@@ -20,14 +20,14 @@ Help for {hi:timeLines}
 {marker Options}{...}
 {synopthdr:Options}
 {synoptline}
-{p2coldent:* {opt id()}}Variable defining the individuals.{p_end}
+{p2coldent:* {opt id()}}Variable defining the category for the y axis.{p_end}
 {p2coldent:* {opt start()}}Variable defining the start times for each activity.{p_end}
 {p2coldent:* {opt end()}}Variable defining the end times for each activity.{p_end}
 {synopt:{opt names()}}Indicates names to be used in graph display, if these are not defined by labels on the id() variables.{p_end}
-{synopt:{opt label()}}Indicates labels to be used in graph display, corresponding to time periods.{p_end}
+{synopt:{opt labels()}}Indicates labels to be used in graph display, corresponding to time periods. This is the time period labels under each category specified with {id()} {p_end}
 {synopt:{opt labopts()}}Any options required for display of labels.{p_end}
-{synopt:{opt class()}}Groups observations into classes, colored by classcolors().{p_end}
-{synopt:{opt classcolors()}}List of colors for observation classes.{p_end}
+{synopt:{opt class()}}According to a variable that classifies observations into categories, colors the time periods that correspondes with it. Must also specify colors with classcolors().{p_end}
+{synopt:{opt classcolors()}}Specifies colors for each class specified by {class()}.{p_end}
 {synopt:{it:tw_options}}Specify any additional options needed for display of graph.{p_end}
 {synoptline}
 {p 4 6 2}{it:(A * indicates required options.)}{p_end}
@@ -35,23 +35,25 @@ Help for {hi:timeLines}
 
 {title:Demo}
 
-webuse census , clear
-keep in 40/50
-replace pop18p = pop18p / 1000
-replace pop = pop / 1000
-format pop18p %tdMon_CCYY
-drop if state == "Virginia"
+	webuse census , clear
 
-xtile category = popurban , n(2)
+	*For simplicity, just use 11 observations{p_end}
+	keep in 40/50
+
+	*Use "pop" and "pop18p" to create time value variables. {p_end}
+	replace pop18p = pop18p / 1000
+	replace pop = pop / 1000
+	format pop18p %tdMon_CCYY
+	format pop1 %tdMon_CCYY
+
+	* Create two categories of the observation.
+	xtile category = popurban , n(2)
 	label def category 1 "Early Adopters" 2 "Late Adopters"
 	label val category category
 
-timeLines , ///
-  id(region) start(pop18p) end(pop) ///
-  labels(state) labopts(mlabangle(30)) ///
-  xsize(7) class(category) classcolors(maroon navy)
+	{inp: timeLines , id(region) start(pop18p) end(pop) labels(state) labopts(mlabangle(30)) xsize(7) class(category) classcolors(maroon navy)}
   
-  graph export "${directory}/timeLines.png" , replace
+	graph export "${directory}/timeLines.png" , replace
 
 
 

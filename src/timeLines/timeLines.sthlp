@@ -1,16 +1,20 @@
 {smcl}
-{* Sep 22 2017}
+{* Nov 15 2018}
 {hline}
 Help for {hi:timeLines}
 {hline}
 
-{title:Description}
+{title:Title}
 
-{p}{cmd: timeLines} creates a graphical representation of time use for various panel units when each observation represents an activity with a start and end time.
+{phang2}{cmd: timeLines} {hline 2} creates a graphical representation of time use for various panel units when each observation represents an activity with a start and end time.{p_end}
 
 {title:Syntax}
 
-{p 2 4 4}{cmd: timeLines} [{help if}] [{help in}], {opth id(varlist)} {opth start(varname)} {opth end(varname)} {break} [{opth names(varname)}] [{opth labels(varname)}] [{opt labopts()}] [{opth class(varname)}] [{opt classcolors()}] {break} [{it:tw_options}] 
+{phang2}{cmd: timeLines} [{help if}] [{help in}], {opth id(varlist)} {opth start(varname)} {opth end(varname)} {break} [{opth names(varname)}] [{opth labels(varname)}] 
+[{cmd:labopts(}{help marker_label_options:marker_label_options}{cmd:)}] [{opth class(varname)}] [{cmd:classcolors(}{help colorstyle:color_name}{cmd:)}] [{help twoway_options:tw_options}] {p_end}
+
+{phang2}Whereas {cmd:id()} specifies the category label on y axis. {cmd:labels()} is a sub-category that belongs to {cmd:id()}. {cmd:labels()} assigns labels onto each time period under {cmd:id()}. 
+
 
 {synoptset 16 tabbed}{...}
 {marker Options}{...}
